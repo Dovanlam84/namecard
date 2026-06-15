@@ -150,8 +150,18 @@ var QR_CAP = {
 };
 
 function saveVCard(){
-  // Mo file vCard that -> iOS/Android hien "Them danh ba"
-  window.location.href = "lam.vcf";
+  try{
+    if(location.protocol!=="file:"){
+      // Da host: mo file .vcf that -> iOS/Android hien "Them danh ba"
+      window.location.href="lam.vcf"; return;
+    }
+    // Mo local: tai blob (may tinh + Android). iOS local nen dung QR.
+    var blob=new Blob([VC_FULL],{type:"text/vcard;charset=utf-8"});
+    var a=document.createElement("a");
+    a.href=URL.createObjectURL(blob); a.download="DoVanLam-VMSC.vcf";
+    document.body.appendChild(a); a.click();
+    setTimeout(function(){a.remove();},100);
+  }catch(e){ window.location.href="lam.vcf"; }
 }
 
 function renderQR(mode){
