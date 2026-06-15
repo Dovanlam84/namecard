@@ -58,7 +58,7 @@ body{
 .tag.r{border-color:rgba(215,38,61,.6);color:#F08A98}
 .tag.y{border-color:rgba(255,201,60,.55);color:#FFD97A}
 .actions{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.btn{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:13.5px;padding:13px 10px;border-radius:9px;border:none;cursor:pointer;transition:transform .12s ease}
+.btn{font-family:'Be Vietnam Pro',sans-serif;font-weight:600;font-size:13.5px;padding:13px 10px;border-radius:9px;border:none;cursor:pointer;transition:transform .12s ease;display:flex;align-items:center;justify-content:center;text-align:center;text-decoration:none;box-sizing:border-box}
 .btn:active{transform:scale(.97)}
 .btn:focus-visible{outline:2px solid var(--beacon);outline-offset:2px}
 .btn-save{background:var(--beacon);color:var(--sea)}
@@ -97,7 +97,7 @@ body{
       <span class="tag y">IALA L1 &amp; Master AtoN Mgmt</span>
     </div>
     <div class="actions">
-      <button class="btn btn-save" onclick="saveVCard()">Lưu danh bạ</button>
+      <a class="btn btn-save" href="lam.vcf">Lưu danh bạ</a>
       <button class="btn btn-qr"  onclick="toggleQR()">Mã QR</button>
     </div>
     <div class="qrwrap" id="qrwrap">
